@@ -1,0 +1,91 @@
+
+{% extends 'backend/home.html' %}
+{% block content %}
+
+<div class="row  row justify-content-center mt-3 mb-3">
+    <div class="col-sm-6 card">
+        <h5 class="card-title">Register</h5>
+        <div style="color: red;">{{ error }}</div>
+        <form method='POST' id="OfficerFrom" name="OfficerForm" action="{% url 'signup'%}" >
+            <!--cross-site-request-forgery-->
+            {% csrf_token %}
+
+          
+            <div class="form-group">
+                <label for="username">User Name</label>
+                <input type="text" class="form-control" id="input_user_name" name="username" required maxlength="45" value="abc">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="input_password" name="password" required  value="123">
+            </div>
+           
+
+            <div class="form-group">
+                <label for="verifyPassword">Confirm Password</label>
+                <input class="form-control" id="input_verifyPassword" rows="3" name="verifyPassword" required  maxlength="225" value="123"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="firstname">FirstName</label>
+                <input type="text" class="form-control" id="input_first_name" name="firstname" required  value="firstname1">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" id="input_last_name" name="lastname" required  value="lastname1">
+            </div>
+            <div class="form-group">
+                <label for="middlename">Middle Name</label>
+                <input type="text" class="form-control" id="input_password" name="middlename" >
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" class="form-control" name="gender" maxlength="25" value="">
+                 
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Decline</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="input_email" name="email" required  value="abc@g2g.com">
+            </div>
+            <div class="form-group">
+                <label for="cellphone">Cell Phone</label>
+                <input type="text" class="form-control" id="input_email" name="cellphone" value="5468987654">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Street</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="street"  maxlength="25" required value="Street1">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity" name="city" required maxlength="25" value="City1">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control" name="state" maxlength="25" value="State1">
+                     
+                        <option selected value="1">AZ</option>
+                        <option value="2">MT</option>
+                        <option value="3">WY</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip (5 digits)</label>
+                    <input type="text" class="form-control" id="inputZip" name="zipcode" required maxlength="25" pattern="[0-9]{5}" value="32345">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dateofbirth">Date of Birth</label>
+                <input class="form-control" type="date" name="dateofbirth" value="2000-06-19" id="example-date-input" required>
+            </div>
+            <button id="btnRegister" type="submit" class="btn btn-primary mb-1">Register</button>
+            <a class="btn btn-secondary  mb-1" href="/home/" role="button">Close</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
