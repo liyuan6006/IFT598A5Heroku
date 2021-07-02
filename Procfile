@@ -1,1 +1,1 @@
-web: gunicorn G2GProject.wsgi
+web: Gunicorn G2GProject.wsgi
